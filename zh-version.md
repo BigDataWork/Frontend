@@ -2,11 +2,11 @@
 
 ## 1 主页面
 
-<img src="/Users/zoriswang/Library/Application%20Support/typora-user-images/image-20211201171421224.png" alt="image-20211201171421224" style="zoom:50%;" />
+<img src="https://i.loli.net/2021/12/02/bVH8lTE4NpcZRBf.png" alt="屏幕快照 2021-12-02 下午6.35.46.png" style="zoom:50%;" />
 
 ### <1>  皮带搭接关系图
 
-<img src="/Users/zoriswang/Library/Application%20Support/typora-user-images/image-20211201165226344.png" alt="image-20211201165226344" style="zoom:50%;" />
+<img src="https://i.loli.net/2021/12/02/HfPcl8ELpaVzX1N.png" alt="屏幕快照 2021-12-02 下午6.35.53.png" style="zoom:50%;" />
 
 **运行颜色**
 
@@ -14,13 +14,13 @@
 
 **颜色说明**
 
-<img src="/Users/zoriswang/Library/Application%20Support/typora-user-images/image-20211201165325404.png" alt="image-20211201165325404" style="zoom:50%;" />
+<img src="https://i.loli.net/2021/12/02/8JioxW62ZNMvstC.png" alt="屏幕快照 2021-12-02 下午6.35.57.png" style="zoom:50%;" />
 
 **工作面信息需求**
 
 - 破碎机，转载机，顺槽皮带，前刮板和后刮板，分别有停止/运行两个状态
 
-<img src="/Users/zoriswang/Library/Application%20Support/typora-user-images/image-20211201165445813.png" alt="image-20211201165445813" style="zoom:50%;" />
+<img src="https://i.loli.net/2021/12/02/EK1xcwDnXz6M9Wp.png" alt="屏幕快照 2021-12-02 下午6.36.02.png" style="zoom:50%;" />
 
 **其他需求**
 
@@ -28,7 +28,7 @@
 
 ### <2> 运行信息显示
 
-<img src="/Users/zoriswang/Library/Application%20Support/typora-user-images/image-20211201165622273.png" alt="image-20211201165622273" style="zoom:40%;" />
+<img src="https://i.loli.net/2021/12/02/eH3FmIpwXZ7MkrK.png" alt="屏幕快照 2021-12-02 下午6.36.06.png" style="zoom:50%;" />
 
 上下包括两个部分：运行提示和报警统计
 
@@ -71,7 +71,7 @@
 
 ## 2 分页面 - 以西大五1.0皮带为例
 
-<img src="/Users/zoriswang/Library/Application%20Support/typora-user-images/image-20211201170716546.png" alt="image-20211201170716546" style="zoom:50%;" />
+<img src="https://i.loli.net/2021/12/02/iBPdvF2j9RhxN3G.png" alt="屏幕快照 2021-12-02 下午6.36.13.png" style="zoom:50%;" />
 
 分为6个部分
 
