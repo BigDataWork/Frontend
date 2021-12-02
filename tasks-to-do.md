@@ -1,0 +1,32 @@
+# Coal System (Front End)
+
+It's to show a coal system by using **Vue** and **Echarts**
+
+### 1 Main Page
+
+#### <1> Belts Relation
+
+- [ ] Running Color
+- [ ] Color Decription
+- [ ] Skip to Specified Belt [Single Page]
+
+#### <2> Running Info
+
+- [ ] Running Instructions
+- [ ] Alert Statistics
+
+#### <3> Curve Representations
+
+- [ ] [Line] Single Belt Transformation Efficiency
+- [ ] [Bar] Warning Statistics
+
+
+
+### 2 Single Belt
+
+- [ ] [Line] Motor Current
+- [ ] [Line] Reducer's Oil Press
+- [ ] [Line] Running Speed
+- [ ] [Line] Inverter Current
+- [ ] [Line] Alarm Info
+
