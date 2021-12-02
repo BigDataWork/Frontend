@@ -18,7 +18,7 @@ It's to show a coal system by using **Vue** and **Echarts**
 #### <3> Curve Representations
 
 - [ ] [Line] Single Belt Transformation Efficiency
-- [ ] [Bar] Warning Statistics
+- [x] [Bar] Warning Statistics
 
 
 
