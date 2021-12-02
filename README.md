@@ -2,31 +2,33 @@
 
 It's to show a coal system by using **Vue** and **Echarts**
 
-### 1 Main Page
+Because there still not have relative data, if you want to check relative functions. You can run by following ways:
 
-#### <1> Belts Relation
+### 1 open koa server
 
-- [ ] Running Color
-- [ ] Color Decription
-- [ ] Skip to Specified Belt [Single Page]
+```bash
+cd Frontend 
+cd koa_server
+node app.js
+```
 
-#### <2> Running Info
+### 2 open localhost server
 
-- [ ] Running Instructions
-- [ ] Alert Statistics
+> make sure that you have installed 
 
-#### <3> Curve Representations
+```bash
+cd Frontend
+cd mainpage
+npm run server
+```
 
-- [ ] [Line] Single Belt Transformation Efficiency
-- [ ] [Bar] Warning Statistics
+Your defualt webserver will respond in time by running on post:9000.
+
+### 3 Check successful function
+
+```bash
+# In tasks-to-do.md is the charts that the page could show.
+```
 
 
-
-### 2 Single Belt
-
-- [ ] [Line] Motor Current
-- [ ] [Line] Reducer's Oil Press
-- [ ] [Line] Running Speed
-- [ ] [Line] Inverter Current
-- [ ] [Line] Alarm Info
 
