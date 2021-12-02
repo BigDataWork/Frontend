@@ -1,7 +1,7 @@
 <template>
   <div class="com-container">
     <div class="title">
-      <span>{{ title }}</span>
+      <span>{{ '🛠' + title }}</span>
       <span class="iconfont title-icon" @click="showChoice = !showChoice" :style="comStyle">&#xe6eb;</span>
       <div class="select-con" v-show="showChoice">
         <div class="select-item" v-for="item in selectTypes" :key="item.key" @click="handleSelect(item.key)">
@@ -24,6 +24,7 @@ export default {
       titleFontSize: 0
     }
   },
+  // 与 span 绑定
   computed: {
     selectTypes () {
       if (!this.allData) {
@@ -39,6 +40,12 @@ export default {
         return ''
       } else {
         return this.allData[this.dataType].title
+      }
+    },
+    // 控制标题文字的大小
+    comStyle () {
+      return {
+        fontSize: this.titleFontSize + 'px'
       }
     }
   },
@@ -72,13 +79,22 @@ export default {
           boundaryGap: false
         },
         yAxis: {
+          show: true,
           type: 'value'
         },
         tooltip: {
+          show: true,
           trigger: 'axis'
         },
         legend: {
           top: '5%'
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            magicType: { show: true, type: ['stack', 'tiled'] },
+            saveAsImage: { show: true }
+          }
         }
       }
       this.chartInstance.setOption(initOption)
@@ -102,8 +118,10 @@ export default {
           type: 'line',
           name: item.name,
           data: item.data,
-          stack: this.dataType,
-          areaStyle: { opacity: 0.5 }
+          showSymbol: true,
+          symbol: 'roundRect',
+          symbolSize: 15
+          // areaStyle: { opacity: 0.5 }
         }
       })
       const dataOption = {
@@ -116,6 +134,18 @@ export default {
     },
     screenAdapter () {
       this.titleFontSize = this.$refs.efficiency_ref.offsetWidth / 100 * 3.6
+      const adapterOption = {
+        legend: {
+          itemWidth: this.titleFontSize,
+          itemHeight: this.titleFontSize,
+          itemGap: this.titleFontSize,
+          textStyle: {
+            fontSize: this.titleFontSize / 2
+          }
+        }
+      }
+      this.chartInstance.setOption(adapterOption)
+      this.chartInstance.resize()
     }
   }
 }

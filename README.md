@@ -24,7 +24,10 @@ npm run server
 
 Your defualt webserver will respond in time by running on port:9000.(If the port hasn't been occupied.)
 
-The first page will be `localhost:9000/#`, here I just have done `localhost:9000/#/warningPage`, if you are interesting, try to check it!
+The first page will be `localhost:9000/#`, here I just have done:
+- `localhost:9000/#/warningPage`
+- `localhost:9000/#/transformEfficiencyPage` 
+If you are interesting, try to check it!
 
 ### 3 Check successful functions
 
