@@ -6,7 +6,7 @@ It's to show a coal system by using **Vue** and **Echarts**
 
 #### <1> Belts Relation
 
-- [ ] Running Color
+- [x] Running Color
 - [ ] Color Decription
 - [ ] Skip to Specified Belt [Single Page]
 
