@@ -2,7 +2,7 @@
 
 克隆仓库，进入目录，修改分支
 ```shell
-git clone
+git clone git@github.com:BigDataHomework/Frontend.git
 git checkout -b 自己喜欢的分支名 
 ```
 
