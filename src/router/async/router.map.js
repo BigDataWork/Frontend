@@ -30,6 +30,10 @@ const routerMap = {
     name: '分析页',
     component: () => import('@/pages/dashboard/analysis')
   },
+  belt:{
+    name: '皮带',
+    component: () => import('@/pages/dashboard/belt'),
+  },
   form: {
     name: '表单页',
     icon: 'form',
@@ -49,43 +53,6 @@ const routerMap = {
     path: 'advance',
     name: '高级表单',
     component: () => import('@/pages/form/advance')
-  },
-  list: {
-    name: '列表页',
-    icon: 'table',
-    component: view.page
-  },
-  queryList: {
-    path: 'query',
-    name: '查询表格',
-    component: () => import('@/pages/list/QueryList')
-  },
-  primaryList: {
-    path: 'primary',
-    name: '标准列表',
-    component: () => import('@/pages/list/StandardList')
-  },
-  cardList: {
-    path: 'card',
-    name: '卡片列表',
-    component: () => import('@/pages/list/CardList')
-  },
-  searchList: {
-    path: 'search',
-    name: '搜索列表',
-    component: () => import('@/pages/list/search/SearchLayout')
-  },
-  article: {
-    name: '文章',
-    component: () => import('@/pages/list/search/ArticleList')
-  },
-  application: {
-    name: '应用',
-    component: () => import('@/pages/list/search/ApplicationList')
-  },
-  project: {
-    name: '项目',
-    component: () => import('@/pages/list/search/ProjectList')
   },
   details: {
     name: '详情页',

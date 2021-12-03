@@ -99,6 +99,6 @@ const progressDone = () => {
 }
 
 export default {
-  beforeEach: [progressStart, loginGuard, authorityGuard, redirectGuard],
-  afterEach: [progressDone]
+  beforeEach: [],
+  afterEach: []
 }

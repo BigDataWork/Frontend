@@ -35,20 +35,15 @@ const options = {
           component: BlankView,
           children: [
             {
-              path: 'workplace',
-              name: '工作台',
-              meta: {
-                page: {
-                  closable: false
-                }
-              },
-              component: () => import('@/pages/dashboard/workplace'),
+              path: 'analysis',
+              name: '主页面',
+              component: () => import('@/pages/dashboard/analysis'),
             },
             {
-              path: 'analysis',
-              name: '分析页',
-              component: () => import('@/pages/dashboard/analysis'),
-            }
+              path: 'belt',
+              name: '皮带页',
+              component: () => import('@/pages/dashboard/belt'),
+            },
           ]
         },
         {
@@ -76,65 +71,6 @@ const options = {
               path: 'advance',
               name: '高级表单',
               component: () => import('@/pages/form/advance'),
-            }
-          ]
-        },
-        {
-          path: 'list',
-          name: '列表页',
-          meta: {
-            icon: 'table'
-          },
-          component: PageView,
-          children: [
-            {
-              path: 'query',
-              name: '查询表格',
-              meta: {
-                authority: 'queryForm',
-              },
-              component: () => import('@/pages/list/QueryList'),
-            },
-            {
-              path: 'query/detail/:id',
-              name: '查询详情',
-              meta: {
-                highlight: '/list/query',
-                invisible: true
-              },
-              component: () => import('@/pages/Demo')
-            },
-            {
-              path: 'primary',
-              name: '标准列表',
-              component: () => import('@/pages/list/StandardList'),
-            },
-            {
-              path: 'card',
-              name: '卡片列表',
-              component: () => import('@/pages/list/CardList'),
-            },
-            {
-              path: 'search',
-              name: '搜索列表',
-              component: () => import('@/pages/list/search/SearchLayout'),
-              children: [
-                {
-                  path: 'article',
-                  name: '文章',
-                  component: () => import('@/pages/list/search/ArticleList'),
-                },
-                {
-                  path: 'application',
-                  name: '应用',
-                  component: () => import('@/pages/list/search/ApplicationList'),
-                },
-                {
-                  path: 'project',
-                  name: '项目',
-                  component: () => import('@/pages/list/search/ProjectList'),
-                }
-              ]
             }
           ]
         },
