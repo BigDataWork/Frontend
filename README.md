@@ -9,6 +9,7 @@ git checkout -b 自己喜欢的分支名
 运行
 
 ```shell
+npm install
 npm run serve
 ```
 
