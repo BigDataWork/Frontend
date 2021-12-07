@@ -37,9 +37,9 @@ export default {
     position: relative;
     overflow: hidden;
     width: 100%;
-    color: @text-color-second;
-    font-size: 14px;
-    line-height: 22px;
+    color: '#F56F53';
+    font-size: 16px;
+    line-height: 16px;
   }
   .chart-card-action{
     cursor: pointer;
@@ -52,19 +52,19 @@ export default {
     text-overflow: ellipsis;
     word-break: break-all;
     white-space: nowrap;
-    margin-top: 4px;
+    margin-top: 0px;
     margin-bottom: 0;
     font-size: 30px;
     line-height: 38px;
-    height: 38px;
+    height: 80px;
   }
   .chart-card-footer{
     border-top: 1px solid @border-color-base;
-    padding-top: 9px;
-    margin-top: 8px;
+    padding-top: 0px;
+    margin-top: 0px;
   }
   .chart-card-content{
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     position: relative;
     height: 46px;
     width: 100%;

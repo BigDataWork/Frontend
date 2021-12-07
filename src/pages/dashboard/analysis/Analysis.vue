@@ -1,65 +1,33 @@
 <template>
   <div class="analysis">
     <a-row style="margin-top: 0" :gutter="[24, 24]">
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('totalSales')" total="￥ 189,345">
+      <a-col :sm="24" :md="12" :xl="12">
+        <chart-card :loading="loading" :title="'故障统计(10天)'">
           <a-tooltip :title="$t('introduce')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
-            <trend style="margin-right: 16px" :term="$t('wow')" :percent="12" :is-increase="true" :scale="0" />
-            <trend :term="$t('dod')" :target="100" :value="89" :scale="0" />
+            <my-bar/>
           </div>
-          <div slot="footer">{{$ta('daily|sales', 'p')}}<span> ￥234.56</span></div>
         </chart-card>
       </a-col>
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('visits')" total="￥ 189,345">
+      <a-col :sm="24" :md="12" :xl="12">
+        <chart-card :loading="loading" :title="'单皮带传送效率(10天)'">
           <a-tooltip :title="$t('introduce')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
-            <mini-area />
-          </div>
-          <div slot="footer">{{$ta('daily|visits', 'p')}}<span> 123,4</span></div>
-        </chart-card>
-      </a-col>
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('payments')" total="￥ 189,345">
-          <a-tooltip :title="$t('introduce')" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <mini-bar />
-          </div>
-          <div slot="footer">{{$t('conversion')}} <span>60%</span></div>
-        </chart-card>
-      </a-col>
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('operating')" total="73%">
-          <a-tooltip :title="$t('introduce')" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <mini-progress target="90" percent="78" color="#13C2C2" height="8px"/>
-          </div>
-          <div slot="footer" style="white-space: nowrap;overflow: hidden">
-            <trend style="margin-right: 16px" :term="$t('wow')" :percent="12" :is-increase="true" :scale="0" />
-            <trend :term="$t('dod')" :target="100" :value="89" :scale="0" />
+            <my-line />
           </div>
         </chart-card>
       </a-col>
     </a-row>
-    <a-card :loading="loading" style="margin-top: 24px" :bordered="false" :body-style="{padding: '24px'}">
+
+    <a-card :loading="loading" style="margin-top: 48px" :bordered="false" :body-style="{padding: '24px'}">
       <div class="salesCard">
         <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '16px'}">
           <div class="extra-wrap" slot="tabBarExtraContent">
-            <div class="extra-item">
-              <a>{{$t('day')}}</a>
-              <a>{{$t('week')}}</a>
-              <a>{{$t('month')}}</a>
-              <a>{{$t('year')}}</a>
-            </div>
+
             <a-range-picker :style="{width: '256px'}"></a-range-picker>
           </div>
           <a-tab-pane loading="true" :tab="$t('sales')" key="1">
@@ -105,14 +73,12 @@
 
 <script>
 import ChartCard from '../../../components/card/ChartCard'
-import MiniArea from '../../../components/chart/MiniArea'
-import MiniBar from '../../../components/chart/MiniBar'
-import MiniProgress from '../../../components/chart/MiniProgress'
 import Bar from '../../../components/chart/Bar'
 import RankingList from '../../../components/chart/RankingList'
 import HotSearch from './HotSearch'
 import SalesData from './SalesData'
-import Trend from '../../../components/chart/Trend'
+import myBar from '../../../components/chart/myBar'
+import myLine from '../../../components/chart/myLine'
 
 const rankList = []
 
@@ -135,7 +101,7 @@ export default {
   created() {
     setTimeout(() => this.loading = !this.loading, 1000)
   },
-  components: {Trend, SalesData, HotSearch, RankingList, Bar, MiniProgress, MiniBar, MiniArea, ChartCard}
+  components: {SalesData, HotSearch, RankingList, Bar, ChartCard, myBar, myLine}
 }
 </script>
 
