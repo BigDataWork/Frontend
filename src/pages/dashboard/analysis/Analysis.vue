@@ -2,7 +2,7 @@
   <div class="analysis">
     <a-row style="margin-top: 0" :gutter="[24, 24]">
       <a-col :sm="24" :md="12" :xl="12">
-        <chart-card :loading="loading" :title="'故障统计'">
+        <chart-card :loading="loading" :title="'故障统计(10天)'">
           <a-tooltip :title="$t('introduce')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
