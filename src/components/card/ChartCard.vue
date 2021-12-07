@@ -56,7 +56,7 @@ export default {
     margin-bottom: 0;
     font-size: 30px;
     line-height: 38px;
-    height: 50px;
+    height: 80px;
   }
   .chart-card-footer{
     border-top: 1px solid @border-color-base;

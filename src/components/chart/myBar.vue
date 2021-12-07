@@ -1,7 +1,7 @@
 <template>
   <div class="mini-chart">
     <div class="chart-content" :style="{height: 25}">
-      <v-chart :force-fit="true" :height="height" :data="data" :padding="[8, 0, 65, 22.3]">
+      <v-chart :force-fit="true" :height="height" :data="data" :padding="[5, 18, 65, 22.3]">
         <v-tooltip />
         <v-legend />
         <v-axis />
@@ -58,15 +58,15 @@ export default {
   const DataSet = require('@antv/data-set');
 
   const sourceData = [
-    { name: '闲置状态', '西大五-1.0m': 11, '3701': 21, '2501': 22, '西大五-1.6m': 23, '西17-1.6m': 22, '西1.6m': 25, '主斜井': 17 },
-    { name: '通讯故障', '西大五-1.0m': 20, '3701': 23, '2501': 29, '西大五-1.6m': 27, '西17-1.6m': 29, '西1.6m': 21, '主斜井': 27 },
-    { name: '其他故障', '西大五-1.0m': 18, '3701': 28, '2501': 15, '西大五-1.6m': 21, '西17-1.6m': 24, '西1.6m': 28, '主斜井': 24 },
+    { name: '闲置状态', '西大五-1.0m': 11, '3701': 21, '2501': 22, '西大五-1.6m': 23, '西17-1.6m': 22, '西1.6m': 25 },
+    { name: '通讯故障', '西大五-1.0m': 20, '3701': 23, '2501': 29, '西大五-1.6m': 27, '西17-1.6m': 29, '西1.6m': 21 },
+    { name: '其他故障', '西大五-1.0m': 18, '3701': 28, '2501': 15, '西大五-1.6m': 21, '西17-1.6m': 24, '西1.6m': 28 },
   ];
 
   const dv = new DataSet.View().source(sourceData);
   dv.transform({
     type: 'fold',
-    fields: ['西大五-1.0m', '3701', '2501', '西大五-1.6m', '西17-1.6m', '西1.6m', '主斜井'],
+    fields: ['西大五-1.0m', '3701', '2501', '西大五-1.6m', '西17-1.6m', '西1.6m'],
     key: 'x',
     value: 'y',
   });

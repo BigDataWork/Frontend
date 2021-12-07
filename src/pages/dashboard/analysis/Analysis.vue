@@ -12,12 +12,12 @@
         </chart-card>
       </a-col>
       <a-col :sm="24" :md="12" :xl="12">
-        <chart-card :loading="loading" :title="$t('visits')" total="￥ 189,345">
+        <chart-card :loading="loading" :title="'单皮带传送效率(10天)'">
           <a-tooltip :title="$t('introduce')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
-            <mini-area />
+            <my-line />
           </div>
         </chart-card>
       </a-col>
@@ -73,12 +73,12 @@
 
 <script>
 import ChartCard from '../../../components/card/ChartCard'
-import MiniArea from '../../../components/chart/MiniArea'
 import Bar from '../../../components/chart/Bar'
 import RankingList from '../../../components/chart/RankingList'
 import HotSearch from './HotSearch'
 import SalesData from './SalesData'
 import myBar from '../../../components/chart/myBar'
+import myLine from '../../../components/chart/myLine'
 
 const rankList = []
 
@@ -101,7 +101,7 @@ export default {
   created() {
     setTimeout(() => this.loading = !this.loading, 1000)
   },
-  components: {SalesData, HotSearch, RankingList, Bar, MiniArea, ChartCard, myBar}
+  components: {SalesData, HotSearch, RankingList, Bar, ChartCard, myBar, myLine}
 }
 </script>
 
