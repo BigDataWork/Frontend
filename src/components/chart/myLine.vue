@@ -1,12 +1,12 @@
 <template>
   <div class="mini-chart">
-    <div class="chart-content" :style="{height: 25}">
-      <v-chart :force-fit="true" :height="height" :data="data" :padding="[276, 18, 65, 29.3]">
+    <div class="chart-content" :style="{height: 200}">
+      <v-chart :force-fit="true" :height="height" :data="data" :padding="[5, 18, 65, 29.3]"  :scale="scale">
         <v-tooltip />
         <v-legend />
         <v-axis />
-        <v-smooth-line position="month*temperature" color="city" shape="smooth" />
         <v-point position="month*temperature" color="city" shape="circle" />
+        <v-smooth-line position="month*temperature" color="city" shape="smooth"  />
       </v-chart>
     </div>
   </div>
@@ -48,7 +48,7 @@ export default {
     return {
       data,
       scale,
-      height: 400,
+      height: 290,
     };
   }
 };

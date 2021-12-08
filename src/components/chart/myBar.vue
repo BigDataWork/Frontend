@@ -1,6 +1,6 @@
 <template>
   <div class="mini-chart">
-    <div class="chart-content" :style="{height: 25}">
+    <div class="chart-content" :style="{height: 100}">
       <v-chart :force-fit="true" :height="height" :data="data" :padding="[5, 18, 65, 22.3]">
         <v-tooltip />
         <v-legend />
@@ -76,7 +76,7 @@ export default {
     data() {
       return {
         data,
-        height: 110,
+        height: 290,
         adjust: [{
           type: 'dodge',
           marginRatio: 1 / 32,

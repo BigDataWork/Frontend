@@ -1,5 +1,5 @@
 <template>
-  <a-card :loading="loading" :body-style="{padding: '20px 24px 8px'}" :bordered="false">
+  <a-card :="lloadingoading" :body-style="{padding: '20px 24px 8px'}" :bordered="false">
     <div class="chart-card-header">
       <div class="meta">
         <span class="chart-card-title">{{title}}</span>
@@ -66,7 +66,7 @@ export default {
   .chart-card-content{
     margin-bottom: 20px;
     position: relative;
-    height: 46px;
+    height: 200px;
     width: 100%;
   }
   .chart-card-content .content-fix{
