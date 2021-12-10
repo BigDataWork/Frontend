@@ -22,36 +22,14 @@ export default {
         return {
             loading: false,
             busy: false,
-            data: [
-                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },
-                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },
-                                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },                {
-                    "time": "09:04:35",
-                    "message": "西大五1.0m 皮带启动"
-                },
-            ]
+            data: [],
+            path:"ws://124.71.174.198:8080/ws/runningmsg",
+            socket:"",
         }
+    },
+    mounted () {
+        // 初始化
+        this.init()
     },
     methods:{
         handleInfiniteOnLoad() {
@@ -61,6 +39,46 @@ export default {
                 return;
             }
         },
+        init() {
+            if(typeof(WebSocket) === "undefined"){
+                alert("您的浏览器不支持socket")
+            }else{
+                // 实例化socket
+                this.socket = new WebSocket(this.path)
+                // 监听socket连接
+                this.socket.onopen = this.open
+                // 监听socket错误信息
+                this.socket.onerror = this.error
+                // 监听socket消息
+                this.socket.onmessage = this.getMessage
+            }
+        },
+        open() {
+            console.log("socket连接成功");
+        },
+        error() {
+            console.log("连接错误");
+        },
+        getMessage(msg) {
+            let item = JSON.parse(msg.data);
+            this.data.unshift(item.data);
+            console.log(msg.data)
+        },
+        send() {
+        },
+        close() {
+            console.log("socket已经关闭")
+        }
+    },
+    destroyed () {
+        // 销毁监听
+        this.socket.onclose = this.close
+    },
+    created(){
+        fetch("http://124.71.174.198:8080/api/runningmsg")
+        .then(response => response.json())
+        .then(result => this.data = result.data)
+        .catch(error => console.log('error', error));    
     }
 }
 </script>
