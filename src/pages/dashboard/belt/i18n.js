@@ -22,6 +22,10 @@ module.exports = {
       all: '全渠道',
       online: '线上',
       stores: '门店',
+      curve1: '皮带电机电流曲线',
+      curve2: '皮带减压机油压曲线',
+      curve3: '皮带速度曲线',
+      curve4: '皮带变频器电流曲线',
     },
     HK: {
       introduce: '指標說明',

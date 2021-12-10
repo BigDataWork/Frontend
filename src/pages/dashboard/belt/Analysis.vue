@@ -1,163 +1,241 @@
 <template>
-  <div class="analysis">
-    <a-row style="margin-top: 0" :gutter="[24, 24]">
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('totalSales')" total="￥ 189,345">
-          <a-tooltip :title="$t('introduce')" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <trend style="margin-right: 16px" :term="$t('wow')" :percent="12" :is-increase="true" :scale="0" />
-            <trend :term="$t('dod')" :target="100" :value="89" :scale="0" />
-          </div>
-          <div slot="footer">{{$ta('daily|sales', 'p')}}<span> ￥234.56</span></div>
-        </chart-card>
-      </a-col>
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('visits')" total="￥ 189,345">
-          <a-tooltip :title="$t('introduce')" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <mini-area />
-          </div>
-          <div slot="footer">{{$ta('daily|visits', 'p')}}<span> 123,4</span></div>
-        </chart-card>
-      </a-col>
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('payments')" total="￥ 189,345">
-          <a-tooltip :title="$t('introduce')" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <mini-bar />
-          </div>
-          <div slot="footer">{{$t('conversion')}} <span>60%</span></div>
-        </chart-card>
-      </a-col>
-      <a-col :sm="24" :md="12" :xl="6">
-        <chart-card :loading="loading" :title="$t('operating')" total="73%">
-          <a-tooltip :title="$t('introduce')" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <mini-progress target="90" percent="78" color="#13C2C2" height="8px"/>
-          </div>
-          <div slot="footer" style="white-space: nowrap;overflow: hidden">
-            <trend style="margin-right: 16px" :term="$t('wow')" :percent="12" :is-increase="true" :scale="0" />
-            <trend :term="$t('dod')" :target="100" :value="89" :scale="0" />
-          </div>
-        </chart-card>
-      </a-col>
-    </a-row>
-    <a-card :loading="loading" style="margin-top: 24px" :bordered="false" :body-style="{padding: '24px'}">
-      <div class="salesCard">
-        <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '16px'}">
-          <div class="extra-wrap" slot="tabBarExtraContent">
-            <div class="extra-item">
-              <a>{{$t('day')}}</a>
-              <a>{{$t('week')}}</a>
-              <a>{{$t('month')}}</a>
-              <a>{{$t('year')}}</a>
-            </div>
-            <a-range-picker :style="{width: '256px'}"></a-range-picker>
-          </div>
-          <a-tab-pane loading="true" :tab="$t('sales')" key="1">
-            <a-row>
-              <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :title="$ta('stores|sales|trend', 'p')" />
-              </a-col>
-              <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <ranking-list :title="$ta('stores|sales|ranking', 'p')" :list="rankList"/>
-              </a-col>
-            </a-row>
-          </a-tab-pane>
-          <a-tab-pane :tab="$t('visits')" key="2"><a-row>
-            <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-              <bar :title="$ta('visits|trend', 'p')" />
-            </a-col>
-            <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-              <ranking-list :title="$ta('stores|visits|ranking', 'p')" :list="rankList"/>
-            </a-col>
-          </a-row></a-tab-pane>
-        </a-tabs>
-      </div>
-    </a-card>
-    <a-row style="margin: 0 -12px">
-      <a-col style="padding: 0 12px" :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :bordered="false" style="margin-top: 24px" :title="$t('search')">
-          <hot-search />
-        </a-card>
-      </a-col>
-      <a-col style="padding: 0 12px" :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :bordered="false" style="margin-top: 24px;" :title="$t('proportion')">
-          <sales-data />
-          <a-radio-group slot="extra" style="margin: -12px 0">
-            <a-radio-button value="a">{{$t('all')}}</a-radio-button>
-            <a-radio-button value="b">{{$t('online')}}</a-radio-button>
-            <a-radio-button value="c">{{$t('stores')}}</a-radio-button>
-          </a-radio-group>
-        </a-card>
-      </a-col>
-    </a-row>
-  </div>
+	<div class="analysis">
+
+		<a-row>
+			<a-col :sm="24" :md="12" :xl="12">
+				<img src="https://gitee.com/PaulWey/image/raw/master/img/20211209164229.png">
+			</a-col>
+
+			<a-col :sm="24" :md="12" :xl="12">
+				<div class="contour">
+					<div style="height: 80px;">
+						<span class="info">
+							<div>撕裂</div>
+							<div class="waring1" v-if="circle1==1"></div>
+							<div class="waring" v-if="circle1==0"></div>
+						</span>
+						<span class="info">
+							<div>闭锁</div>
+							<div class="waring" v-if="circle2==1"></div>
+							<div class="waring1" v-if="circle2==0"></div>
+						</span>
+						<span class="info">
+							<div>跑偏</div>
+							<div class="waring" v-if="circle3==1"></div>
+							<div class="waring1" v-if="circle3==0"></div>
+						</span>
+						<span class="info">
+							<div>烟雾</div>
+							<div class="waring" v-if="circle4==1"></div>
+							<div class="waring1" v-if="circle4==0"></div>
+						</span>
+						<span class="info">
+							<div>堆煤</div>
+							<div class="waring" v-if="circle5==1"></div>
+							<div class="waring1" v-if="circle5==0"></div>
+						</span>
+					</div>
+					<div style="height: 200px;">
+						<span class="info">
+							<div>速度</div>
+							<div class="waring" v-if="circle6==1"></div>
+							<div class="waring1" v-if="circle6==0"></div>
+						</span>
+						<span class="info">
+							<div>温度</div>
+							<div class="waring" v-if="circle7==1"></div>
+							<div class="waring1" v-if="circle7==0"></div>
+						</span>
+						<span class="info">
+							<div>打滑</div>
+							<div class="waring" v-if="circle8==1"></div>
+							<div class="waring1" v-if="circle8==0"></div>
+						</span>
+						<span class="info">
+							<div>纵撕</div>
+							<div class="waring" v-if="circle9==1"></div>
+							<div class="waring1" v-if="circle9==0"></div>
+						</span>
+						<span class="info">
+							<div>断带</div>
+							<div class="waring" v-if="circle10==1"></div>
+							<div class="waring1" v-if="circle10==0"></div>
+						</span>
+					</div>
+				</div>
+			</a-col>
+		</a-row>
+
+		<a-card :loading="loading" style="margin-top: 24px" :bordered="false" :body-style="{padding: '24px'}">
+			<div class="salesCard">
+				<a-row>
+					<a-col :xl="8" :lg="12" :md="5" :sm="24" :xs="24">
+						<div>
+							<chart-1 />
+						</div>
+					</a-col>
+					<a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
+						<div>
+							<chart-2 />
+						</div>
+					</a-col>
+				</a-row>
+
+				<a-row>
+					<a-col :xl="8" :lg="12" :md="5" :sm="24" :xs="24">
+						<div>
+							<chart-3 />
+						</div>
+					</a-col>
+					<a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
+						<div>
+							<chart-4 />
+						</div>
+					</a-col>
+				</a-row>
+			</div>
+		</a-card>
+	</div>
 </template>
 
 <script>
-import ChartCard from '../../../components/card/ChartCard'
-import MiniArea from '../../../components/chart/MiniArea'
-import MiniBar from '../../../components/chart/MiniBar'
-import MiniProgress from '../../../components/chart/MiniProgress'
-import Bar from '../../../components/chart/Bar'
-import RankingList from '../../../components/chart/RankingList'
-import HotSearch from './HotSearch'
-import SalesData from './SalesData'
-import Trend from '../../../components/chart/Trend'
+	import Chart1 from './Chart1.vue'
+	import Chart2 from './Chart2.vue'
+	import Chart3 from './Chart3.vue'
+	import Chart4 from './Chart4.vue'
 
-const rankList = []
 
-for (let i = 0; i < 8; i++) {
-  rankList.push({
-    name: '桃源村' + i + '号店',
-    total: 1234.56 - i * 100
-  })
-}
-
-export default {
-  name: 'Analysis',
-  i18n: require('./i18n'),
-  data () {
-    return {
-      rankList,
-      loading: true
-    }
-  },
-  created() {
-    setTimeout(() => this.loading = !this.loading, 1000)
-  },
-  components: {Trend, SalesData, HotSearch, RankingList, Bar, MiniProgress, MiniBar, MiniArea, ChartCard}
-}
+	export default {
+		name: 'Analysis',
+		i18n: require('./i18n'),
+		data() {
+			return {
+				path: "url",
+				ws: {},
+				circle1: 1,
+				circle2: 1,
+				circle3: 1,
+				circle4: 1,
+				circle5: 1,
+				circle6: 1,
+				circle7: 1,
+				circle8: 1,
+				circle9: 1,
+				circle10: 1,
+				//rankList,
+				loading: true
+			}
+		},
+		methods: {
+			change_color: function() {
+				this.circle1 = Math.round(Math.random() * 2) % 2
+				this.circle2 = Math.round(Math.random() * 2) % 2
+				this.circle3 = Math.round(Math.random() * 2) % 2
+				this.circle4 = Math.round(Math.random() * 2) % 2
+				this.circle5 = Math.round(Math.random() * 2) % 2
+				this.circle6 = Math.round(Math.random() * 2) % 2
+				this.circle7 = Math.round(Math.random() * 2) % 2
+				this.circle8 = Math.round(Math.random() * 2) % 2
+				this.circle9 = Math.round(Math.random() * 2) % 2
+				this.circle10 = Math.round(Math.random() * 2) % 2
+			},
+			//websocket连接后端数据改变颜色
+			//1：为绿色，0：为红色
+			changecolor_websocket: function() {
+				this.ws = new WebSocket(this.path);
+				//监听是否连接成功
+				this.ws.onopen = () => {
+					console.log("ws连接状态：" + this.ws.readyState);
+				};
+				//接听服务器发回的信息并处理展示
+				this.ws.onmessage = (res) => {
+					console.log("接收到来自服务器的消息：");
+					console.log(res.data)
+					this.circle1 = res.data[0]
+					this.circle2 = res.data[1]
+					this.circle3 = res.data[2]
+					this.circle4 = res.data[3]
+					this.circle5 = res.data[4]
+					this.circle6 = res.data[5]
+					this.circle7 = res.data[6]
+					this.circle8 = res.data[7]
+					this.circle9 = res.data[8]
+					this.circle10 = res.data[9]
+				};
+				//监听连接关闭事件
+				this.ws.onclose = () => {
+					//监听整个过程中websocket的状态
+					console.log("ws连接状态：" + this.ws.readyState);
+				};
+				//监听并处理error事件
+				this.ws.onerror = function(error) {
+					console.log(error);
+				};
+			},
+		},
+		created() {
+			setTimeout(() => this.loading = !this.loading, 1000)
+			setInterval(this.change_color, 5000)
+		},
+		components: {
+			Chart1,
+			Chart2,
+			Chart3,
+			Chart4
+		}
+	}
 </script>
 
 <style lang="less" scoped>
-  .extra-wrap{
-    .extra-item{
-      display: inline-block;
-      margin-right: 24px;
-      a:not(:first-child){
-        margin-left: 24px;
-      }
-    }
-  }
-  @media screen and (max-width: 992px){
-    .extra-wrap .extra-item{
-      display: none;
-    }
-  }
-  @media screen and (max-width: 576px){
-    .extra-wrap{
-      display: none;
-    }
-  }
+	.extra-wrap {
+		.extra-item {
+			display: inline-block;
+			margin-right: 24px;
 
+			a:not(:first-child) {
+				margin-left: 24px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 992px) {
+		.extra-wrap .extra-item {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 576px) {
+		.extra-wrap {
+			display: none;
+		}
+	}
+
+	.info {
+		float: left;
+		margin: 10px;
+	}
+
+	.contour {
+		outline-style: dotted;
+		outline-color: gray;
+		height: 200px;
+		width: 400px;
+		margin: 20px 0px 50px 60px;
+	}
+
+	.waring {
+		width: 60px;
+		height: 60px;
+		background-color: #009966;
+		border-radius: 50%;
+		float: left;
+	}
+
+	.waring1 {
+		width: 60px;
+		height: 60px;
+		background-color: #ff0000;
+		border-radius: 50%;
+		float: left;
+	}
 </style>
