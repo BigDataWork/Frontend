@@ -94,10 +94,6 @@
 
 <script>
 import ChartCard from "../../../components/card/ChartCard";
-import Bar from "../../../components/chart/Bar";
-import RankingList from "../../../components/chart/RankingList";
-import HotSearch from "./HotSearch";
-import SalesData from "./SalesData";
 import myBar from "../../../components/chart/myBar";
 import myLine from "../../../components/chart/myLine";
 import BeltOverview from "./BeltOverview";
